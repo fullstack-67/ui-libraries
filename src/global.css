@@ -1,19 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --color-background: #030b19;
-  --color-text: #8cabd9;
+  --color-background: #ebebeb;
+  --color-primary: #21368c;
+  --color-secondary: #4aaebe;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: hsl(0, 0%, 92%);
-    --color-text: hsl(211, 83%, 19%);
+    --color-background: #030b19;
+    --color-primary: #d4d6dc;
+    --color-secondary: #1e7583;
   }
 }
 
 body {
   background-color: var(--color-background);
-  color: var(--color-text);
+  color: var(--color-primary);
   font-family: "Noto Sans Thai";
+  margin: 2rem;
+}
+
+.card {
+  height: 25vh;
+  width: 300px;
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.header {
+  color: var(--color-primary);
 }
