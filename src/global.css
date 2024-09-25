@@ -1,30 +1,53 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+/* Generated colors from https://www.realtimecolors.com */
 
-:root {
-  --color-background: #ebebeb;
-  --color-primary: #21368c;
-  --color-secondary: #4aaebe;
+/* Based on system preference */
+/* :root {
+  --text: #040e16;
+  --background: #f6fbfe;
+  --primary: #2b82da;
+  --secondary: #939ceb;
+  --accent: #6a5fe3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #030b19;
-    --color-primary: #d4d6dc;
-    --color-secondary: #1e7583;
+    --text: #e9f3fb;
+    --background: #010609;
+    --primary: #257dd4;
+    --secondary: #141d6c;
+    --accent: #271ca0;
   }
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  --text: #040e16;
+  --background: #f6fbfe;
+  --primary: #2b82da;
+  --secondary: #939ceb;
+  --accent: #6a5fe3;
+}
+
+body.dark {
+  --text: #e9f3fb;
+  --background: #010609;
+  --primary: #257dd4;
+  --secondary: #141d6c;
+  --accent: #271ca0;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: var(--background);
+  color: var(--text);
   font-family: "Noto Sans Thai";
   margin: 2rem;
 }
 
 .card {
-  height: 25vh;
+  height: 20vh;
   width: 300px;
-  background-color: var(--color-secondary);
+  background-color: var(--primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,5 +55,5 @@ body {
 }
 
 .header {
-  color: var(--color-primary);
+  color: var(--text);
 }
