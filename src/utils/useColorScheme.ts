@@ -1,32 +1,11 @@
-import { useEffect, useMemo } from "react";
-import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
+import { useMantineColorScheme, useComputedColorScheme } from "@mantine/core";
 
 export function useColorScheme() {
-  const isSystemPrefersDark = useMediaQuery("(prefers-color-scheme: dark)");
-
-  const [colorScheme, setColorScheme] = useLocalStorage<
-    "light" | "dark" | null
-  >("colorScheme", null);
-
-  const isDark = useMemo(() => {
-    if (colorScheme === null) {
-      return isSystemPrefersDark;
-    } else {
-      return colorScheme === "dark";
-    }
-  }, [colorScheme, isSystemPrefersDark]);
-
-  useEffect(() => {
-    if (isDark) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [isDark]);
-
-  const setIsDark = (value: boolean) => {
-    setColorScheme(value ? "dark" : "light");
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("light");
+  const isDark = computedColorScheme === "dark";
+  const toggleColorScheme = () => {
+    setColorScheme(computedColorScheme === "dark" ? "light" : "dark");
   };
-
-  return { isDark, setIsDark };
+  return { isDark, toggleColorScheme };
 }
