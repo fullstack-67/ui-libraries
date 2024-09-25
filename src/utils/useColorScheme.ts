@@ -1,5 +1,5 @@
+import { useLocalStorage, useMediaQuery } from "@uidotdev/usehooks";
 import { useEffect, useMemo } from "react";
-import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
 
 export function useColorScheme() {
   const isSystemPrefersDark = useMediaQuery("(prefers-color-scheme: dark)");
@@ -18,9 +18,9 @@ export function useColorScheme() {
 
   useEffect(() => {
     if (isDark) {
-      document.body.classList.add("dark");
+      document.documentElement.classList.add("dark");
     } else {
-      document.body.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
     }
   }, [isDark]);
 
