@@ -18,9 +18,9 @@ export function useColorScheme() {
 
   useEffect(() => {
     if (isDark) {
-      document.body.classList.add("dark");
+      document.documentElement.setAttribute("data-bs-theme", "dark");
     } else {
-      document.body.classList.remove("dark");
+      document.documentElement.setAttribute("data-bs-theme", "light");
     }
   }, [isDark]);
 
