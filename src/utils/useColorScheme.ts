@@ -1,32 +1,32 @@
 import { useEffect, useMemo } from "react";
-import { useMediaQuery } from "react-responsive";
-import createPersistedState from "use-persisted-state";
-const useColorSchemeState = createPersistedState("colorScheme");
+import { useMediaQuery, useLocalStorage } from "@uidotdev/usehooks";
 
 export function useColorScheme() {
-  const systemPrefersDark = useMediaQuery(
-    {
-      query: "(prefers-color-scheme: dark)",
-    },
-    undefined
-  );
+  const isSystemPrefersDark = useMediaQuery("(prefers-color-scheme: dark)");
 
-  const [isDark, setIsDark] = useColorSchemeState();
-  const value = useMemo(
-    () => (isDark === undefined ? !!systemPrefersDark : Boolean(isDark)),
-    [isDark, systemPrefersDark]
-  );
+  const [colorScheme, setColorScheme] = useLocalStorage<
+    "light" | "dark" | null
+  >("colorScheme", null);
+
+  const isDark = useMemo(() => {
+    if (colorScheme === null) {
+      return isSystemPrefersDark;
+    } else {
+      return colorScheme === "dark";
+    }
+  }, [colorScheme, isSystemPrefersDark]);
 
   useEffect(() => {
-    if (value) {
+    if (isDark) {
       document.body.classList.add("dark");
     } else {
       document.body.classList.remove("dark");
     }
-  }, [value]);
+  }, [isDark]);
 
-  return {
-    isDark: value,
-    setIsDark,
+  const setIsDark = (value: boolean) => {
+    setColorScheme(value ? "dark" : "light");
   };
+
+  return { isDark, setIsDark };
 }
