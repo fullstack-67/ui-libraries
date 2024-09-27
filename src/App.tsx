@@ -6,7 +6,7 @@ function App() {
   return (
     <main style={{ position: "relative" }}>
       <DarkModeToggle />
-      <h1>Pure CSS</h1>
+      <h1>No Library, Just CSS</h1>
 
       <article style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
         <div className="card">
