@@ -1,24 +1,3 @@
-/* Generated colors from https://www.realtimecolors.com */
-
-/* Based on system preference */
-/* :root {
-  --text: #040e16;
-  --background: #f6fbfe;
-  --primary: #2b82da;
-  --secondary: #939ceb;
-  --accent: #6a5fe3;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #e9f3fb;
-    --background: #010609;
-    --primary: #257dd4;
-    --secondary: #141d6c;
-    --accent: #271ca0;
-  }
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
@@ -39,21 +18,6 @@ body.dark {
 
 body {
   background-color: var(--background);
-  color: var(--text);
   font-family: "Noto Sans Thai";
   margin: 2rem;
-}
-
-.card {
-  height: 20vh;
-  width: 300px;
-  background-color: var(--primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-}
-
-.header {
-  color: var(--text);
 }
